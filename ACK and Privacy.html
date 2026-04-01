@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Agreement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Accordion transition */
+        .accordion-content {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .section-active {
+            border-color: #4f46e5;
+            background-color: #f5f3ff; /* Very light indigo */
+        }
+
+        .disabled-section {
+            opacity: 0.4;
+            pointer-events: none;
+            filter: grayscale(0.8);
+        }
+
+        /* Custom checkbox accent */
+        input[type="checkbox"]:checked {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.98) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-modal {
+            animation: modalIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-50 flex items-center justify-center hidden">
+        
+        <!-- Modal Container -->
+        <div class="bg-white w-full max-w-2xl rounded-[20px] shadow-2xl overflow-hidden animate-modal flex flex-col max-h-[90vh] border border-white/20">
+            
+            <!-- Header -->
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white sticky top-0 z-10">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">User Agreement</h2>
+                    <p class="text-sm text-slate-500 mt-0.5" id="progressText">0 of 2 sections completed</p>
+                </div>
+                <div class="flex flex-col items-end gap-2">
+                    <div class="h-1.5 w-28 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="progressBar" class="h-full bg-indigo-600 transition-all duration-500 w-0"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content (Accordion) -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-slate-50/50">
+                
+                <!-- Section 1: Privacy Policy -->
+                <div id="section1" class="bg-white border border-slate-200 rounded-2xl transition-all duration-300 section-active shadow-sm">
+                    <div class="w-full flex items-center justify-between p-4">
+                        <button class="flex-1 flex items-center gap-3 text-left font-semibold text-slate-800" onclick="toggleSection(1)">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-bold shadow-sm">1</span>
+                            Privacy Policy
+                            <svg id="icon1" class="w-4 h-4 text-slate-400 transform transition-transform rotate-180 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <a href="https://altametrics.com/legal/privacy-policy/" target="_blank" title="Open full document" class="p-2 text-slate-400 hover:text-indigo-600 transition-colors bg-slate-50 rounded-lg ml-2" onclick="event.stopPropagation()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div id="content1" class="accordion-content px-4 pb-4">
+                        <div id="scrollContainer1" class="h-52 overflow-y-auto pr-3 custom-scrollbar text-[14px] text-slate-600 leading-relaxed space-y-4 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
+                           <div class="row justify-content-center">
+			<div class="col-md-10">
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Privacy Policy
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">(“Company,” “we,” “our,” or “us”) provides this privacy policy (the “Policy”) to inform you on how we process your information, whether you are a visitor to our website, a purchaser of our products, or a user of our services.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Except as explicitly provided herein, this Policy applies to your use of the websites, the mobile applications, and to any service offered by Altametrics that includes a link to this Policy, including your account (if you have registered or are registering your account) and the software applications (each of these services and applications are collectively defined as the “Service”).  Please read this Policy carefully to understand how we handle your information. By using or otherwise accessing the Service, you agree to this Policy. If you do not agree to this Policy, please do not access or use the Service.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Information We Collect
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We obtain information about you when you use or otherwise access the Service. Please note that we need certain types of information to provide the Service to you. If you do not provide us with such information, or if you ask us to delete that information, you may no longer be able to access or use certain parts of our Service.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Information You Provide Directly to Us
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">The types of information we collect directly from you include<br></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;"> Account Registration Information If you register for an account, we may collect your name, username, password, title, email address, address, telephone number, postal code, country, location, customer Id number, user identification, user differentiator, and payment information such as the last four digits of your credit card number.</li><li data-asw-org-font-size="16" style="font-size: 16px;">Social Media Data When you use social media features to communicate with other users of the Service or upload a photo, we collect your username and other information like your location. </li><li data-asw-org-font-size="16" style="font-size: 16px;">Access to and use of the Services;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Network Data When you use the Service, we may collect information such as, session date, start time, end time, duration, identification number, features used, identification number, and Identification Number. </li><li data-asw-org-font-size="16" style="font-size: 16px;">Site Data When you use a Service, we collect certain information from you such as contact details and the Site affiliation or association to a company account. We may collect session and scheduling data, information relating to the WIFI network you connect to, geolocation, and other data you input into the Service.</li><li data-asw-org-font-size="16" style="font-size: 16px;">User Content The Service may allow you to upload content, such as images and photos, and communications with other users. “Interest-based” or “personalized” advertising powered in part by these cookies is usually more relevant to you, but it also generally involves the collection and use of more information about you and your browsing history. There are ways to opt out of most or all interest-based or personalized advertising we describe how to do that in the section below titled “Online Analytics and Tailored Advertising.”</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Information We Collect From Third Parties.
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We may collect information about you or others through our affiliates or through non-affiliated third parties. We may also collect information about you from non-affiliated third parties for fraud or safety protection purposes, or for marketing purposes. We likewise may combine information that we collect from you through the Service with information that we obtain from such third parties and information derived from any other products or services we provide.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Information We Collect Automatically.
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><srrong> Device/Usage Information.<br>We and our third-party service providers may use cookies, web beacons, and other tracking technologies to collect and store information about your use of the Service. As described further below, we may collect and analyze information including, but not limited to (1) IP address, (2) date and day of access request, (3) pages viewed, (4) time zone difference to Greenwich Mean Time (GMT), (5) the standard HTTP-header information, (6) the time spent on each page of our Website or App page, (7) links you have clicked on our Website, (8) the page you visit before and after you come to our Website, (9) browser type, (10) operating system, (11) language, (12) advertising identification number and vendor identifier, (13) usage data including information on how you navigate the Service, and (14) version of browser software.</srrong></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Location Information.</strong> When you use the Service, we may collect general location information (such as IP address). If you install our App, we may ask you to grant us access to your mobile device’s geolocation data. If you grant such permission, we may collect information about your precise geolocation, and we may use that information to improve the Service, including providing you with location-based features. If you access the Service through a mobile device and you do not want your device to provide us with location-tracking information, you can disable the GPS or other location-tracking functions on your device, provided your device allows you to do this. See your device manufacturer's instructions for further details. If you disable certain functions, you may be unable to use certain parts of the Service.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Cookies and Other Electronic Technologies.</strong> Like most websites, Altametrics uses cookies and similar technologies including web beacons, embedded scripts and e-tags (together referred to as “cookies”, unless otherwise stated) to provide users an efficient user experience in using the Website and Services. A cookie is a small data file that is placed on your computer or mobile device by your web browser. It is a tool that stores information about website visits, recognizes you and your preferences each time you visit the Website, optimizes website functionality, and enables us to provide the Service. Some parts of the Website use cookies to track user traffic patterns.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Altametrics uses cookies for a variety of reasons, including to: provide you the Service you have requested, enhance our Website’s performance, or analyze how users use our Website. Our use of cookies falls into the following categories</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;"><strong>Strictly necessary cookies.</strong> These are essential to enable you to move around the Website and use its features. Without these cookies, the Service you have requested cannot be provided.</li><li data-asw-org-font-size="16" style="font-size: 16px;"><strong>Performance cookies.</strong>These cookies improve how our Website works. They collect information about how users use our Website (e.g., which pages users visit most often, and if users get error messages from web pages).</li><li data-asw-org-font-size="16" style="font-size: 16px;"><strong>Functionality cookies.</strong> These cookies allow us to remember what choices you make (e.g., your username, language or the region you are in) to provide enhanced, more personal features. The information these cookies collect may be anonymized.</li><li data-asw-org-font-size="16" style="font-size: 16px;"><strong>Advertising and marketing cookies.</strong> These cookies are used to send you advertising and marketing-related material tailored to you and your interests, limit the number of times you see an advertisement, and help measure advertising campaigns’ effectiveness. These cookies are usually placed by advertising networks with the website operator’s permission. These cookies remember that you have visited a website and this information is shared with other organizations like advertisers. The “interest-based” or “personalized” advertising powered in part by these cookies is usually more relevant to you, but it also generally involves the collection and use of more information about you and your browsing history. There are ways to opt out of most or all interest-based or personalized advertising. We describe how to opt out in the section titled “Online Analytics and Tailored Advertising.”</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						How We Use Information Collected
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Altametrics may use the information we collect from or about you for the following business or commercial purposes, such as uses to</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">Process your application to create an account;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Provide our Service to you, including information, products, and services you request from us that enable you to access our Services;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Process billing functions, including payment of fees;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Notify you of changes to our Website or Service;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Manage and administer your account, including to distinguish between multiple users under a single account, and for information regarding sessions;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Manage and respond to any inquiries, correspondence, concerns or complaints you have sent to us;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicate with you regarding the Service;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Enable you to communicate with other users;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Promote and market Hubworks products and services;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyze use of the Service;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Improve any services we provide, and research or develop other products or services;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Keep our Service secure and operational;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Provide value added service, promotions, and pricing;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fulfill the purposes for which you provided it;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Maintain internal records;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Create or maintain aggregated, anonymized or de-identified information, which we may use and disclose without restriction;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Investigate, prevent, or take action regarding unlawful or harmful activities, including potential threats to physical safety, potential fraud, and violations of our Terms and Conditions; and/or</li><li data-asw-org-font-size="16" style="font-size: 16px;">Safeguard our and others’ rights or property.</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We may combine any of the information that we collect from you with other information, including information that we obtain from third parties, or with information derived from any other products or services we provide. For example, we may combine personal information you provide us, such as an email address, with information automatically collected about your device.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						When We Share Your Information
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We may share your information we collect as follows</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">With our service providers and other contractors (e.g., hosting and financial providers, marketing, customer support platforms, and data storage providers);</li><li data-asw-org-font-size="16" style="font-size: 16px;">With our affiliates;</li><li data-asw-org-font-size="16" style="font-size: 16px;">With our distributors, resellers, channel partners, or authorized third parties including third-party network providers, or their respective employees, freelancers, and consultants to help us provide our Service to you;</li><li data-asw-org-font-size="16" style="font-size: 16px;">At your direction or with your consent, such as when you use our social media features to provide information to Hubworks users about our Service or when you direct us to share information with third parties;</li><li data-asw-org-font-size="16" style="font-size: 16px;">In connection with the negotiation, diligence, or actual merger, acquisition or any form of sale of some or all of Hubworks assets or business;</li><li data-asw-org-font-size="16" style="font-size: 16px;">In the unlikely event of insolvency, bankruptcy or receivership in which your information would be transferred as one of Altamerics’ business assets;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Where we are legally obligated to disclose information to the government or third parties for the purposes of criminal or fraud investigations, national security, law enforcement or other issues of public importance; and</li><li data-asw-org-font-size="16" style="font-size: 16px;">Where we otherwise believe it appropriate to investigate, prevent, or take action regarding possible illegal activities, suspected fraud, situations involving potential threats to the physical safety of any person, violations of our Terms and Conditions or any other legal terms governing use of the Service, and/or to protect our rights and property and the rights and property of other users.</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Online Analytics and Tailored Advertising
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We may use third-party analytics services such as Google Analytics. These service providers use the technologies described in the “Information We Collect Automatically” section above to help us analyze how users use the Service, including analyzing your Website use, compiling reports on Website activity, and providing us with other services relating to Website activity and internet usage. We may also use Google Analytics for certain purposes related to advertising, as described in the following section. To prevent Google Analytics from using your information for analytics, you may install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" data-asw-org-font-size="16" style="font-size: 16px;">Google Analytics Opt-out Browser Add-on</a> Google Analytics Opt-out Browser Add-on for your current web browser.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Tailored Advertising.</strong> </p><p data-asw-org-font-size="16" style="font-size: 16px;">We and our third-party service providers may use device identifiers and other automated technologies (including cookie identifiers on our website), along with other collected information, to deliver content or tailor ads when you are on our Service or on other devices, apps or websites. These ads may be based, for instance, on the types of websites that you visit over time, the types of apps you have on your device, or de-identified information about you and your likely interests, based on your activities off of our Service. Partners that we or others work with to do the above may track your activities over time (including across different apps or websites) by collecting information through automated means, and they may use this information, and other information they receive from us or other sources, to deliver advertisements to you. You may control and block the cookies used by the Website by modifying the settings in your browser or on your device that allow you to refuse the setting of all or some cookies. You can also adjust your settings so that your browser blocks all cookies or only cookies from third parties. You can also delete cookies that have already been placed. However, please note that if you use your browser or device settings to block all cookies you may not be able to access all or parts of our Website. For more information about how cookies can be managed and deleted please visit http://www.allaboutcookies.org/ or http://www.networkadvertising.org/choices/.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Security Measures
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Company has implemented administrative, physical, and technical security measures to protect your information under our control.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">While Company takes precautions against possible security breaches of its Website and Service, no website or Internet transmission is completely secure and we cannot guarantee that unauthorized access, hacking, data loss, or other breaches will never occur. We are unable to guarantee the security of your information while it is being transmitted to our Website or stored in our systems and any transmission is at your own risk.  You should take steps to keep your information safe (including your password) and to log out of your account after use. Where we have provided you, or you have chosen, a password which enables you to access certain parts of our Website, or a two-factor authentication mechanism to access the Services, you are responsible for keeping your password and two-factor authentication mechanism confidential. You must not share these with anyone or store them in a way that may allow a third party to access them. If that happens, you agree to report it immediately to Company. Company cannot be held responsible for your failure to keep your password or two-factor authentication mechanism secure.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You should update your password periodically to help reduce the risk of unauthorized access to your account with us. When you do, you should strengthen your password with the combination of uppercase and lowercase letters, numbers, punctuation and other symbols.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Your Choices
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You may modify certain of the information we maintain about you by accessing your account. You may unsubscribe from marketing communications from us by following the directions in those communications. Please note that where you opt out of, and unsubscribe from, receiving marketing communications, we may still send you certain communications relating to your use of the Service (e.g., service announcements, notices about new features or information on the Service, administrative messages and communications regarding your account).</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Local laws may also grant you additional rights. For example, Nevada consumers may opt out of the sale of "personally identifiable information" for monetary consideration to a person for that person to license or sell such information to additional persons. “Personally identifiable information” includes first and last name, address, email address, phone number, Social Security Number, or an identifier that allows a specific person to be contacted either physically or online. We do not engage in such activity; however, if you are a Nevada resident who has purchased or leased goods or services from us, you may submit a request to opt out of any potential future sales under Nevada law by contacting us. Please note we will take reasonable steps to verify your identity and the authenticity of the request. Once verified, we will maintain your request in the event our practices change.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Links to Third Party Websites and Services
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">This Website may contain links to third-party sites. Access to any other websites linked to the Company’s Website is at the user’s own risk, and Company is not responsible for the accuracy or reliability of any information, data, opinions, advice or statements made on these websites. Company provides these links merely as a convenience and the inclusion of such links does not imply any kind of endorsement. If you provide any third-party with your information, we recommend that you review their privacy policies as Company does not control how they collect, process and transfer your information.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Children’s Privacy
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">The Website and Service are intended for individuals over the age of 16. Hubworks does not knowingly collect any information from anyone under 16 years of age. If you are less than 16 years of age, we request that you do not submit information to us. If we become aware that we have inadvertently collected “personal information” (as defined by the United States Children’s Online Privacy Protection Act) from children under the age of 13 without parental consent, we will take reasonable steps to delete it as soon as possible as required by applicable law.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Changes to Our Privacy Policy
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We may change this Policy to reflect changes in the law, our information practices or the features of the Service. At the top of our Policy, we will indicate the date of the most recent update. If we make a material change to the Policy, you will be provided with appropriate notice in accordance with legal requirements, which may be thru email. By continuing to use the Service, you are confirming that you have read and understood the latest version of this Policy.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Contact Us
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You can contact us by using the contact us form on our website or by writing to us at Altametrics, Attn: Legal Department, 3191 Red Hill Ave Costa Mesa CA 92626.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Supplemental Privacy Notice for California Residents
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">This Supplemental Privacy Notice supplements the information in our Privacy Policy, and except as provided herein, applies solely to California residents. It applies to personal information we collect on or through the Service and through other means (such as information collected offline, in person, and over the telephone). It does not apply to personal information we collect from our employees and job applicants in their capacity as employees and job applicants. It also does not apply to personal information we collect from employees, owners, directors, officers, or contractors of businesses in the course of our provision or receipt of business-related services.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">strong&gt;Summary of Information We Collect.  California law requires us to disclose information regarding the categories of personal information that we have collected about California consumers, the categories of sources from which the information was collected, the business or commercial purposes (as those terms are defined by applicable law) for which the information was collected, and the categories of parties with whom we share personal information.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We or our service providers may collect the below categories of information for the following business or commercial purposes (as those terms are defined in applicable law):</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service (e.g., account servicing and maintenance, order processing and fulfillment, customer service, advertising and marketing, analytics, and communication about the Service);</li><li data-asw-org-font-size="16" style="font-size: 16px;">Our or our service provider’s operational purposes;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Auditing consumer interactions on our site (e.g., measuring ad impressions);</li><li data-asw-org-font-size="16" style="font-size: 16px;">Detecting, protecting against, and prosecuting security incidents and fraudulent or illegal activity;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Bug detection, error reporting, and activities to maintain the quality or safety of our Service;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Short-term, transient use, such as customizing content that we or our service providers display on the Service;</li><li data-asw-org-font-size="16" style="font-size: 16px;">Improving our existing Service and developing new services (e.g., by conducting research to develop new products or features);</li><li data-asw-org-font-size="16" style="font-size: 16px;">Other uses that advance our commercial or economic interests, such as third-party advertising and communicating with you about relevant offers from third-party partners; and</li><li data-asw-org-font-size="16" style="font-size: 16px;">Other uses about which we notify you.</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Examples of these types of uses are identified below. We may also use the below categories of personal information for compliance with applicable laws and regulations, and we may combine the information we collect (“aggregate”) or remove pieces of information (“de-identify”) to limit or prevent identification of any particular user or device</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">Categories of Personal</li><li data-asw-org-font-size="16" style="font-size: 16px;">Information We Collect</li><li data-asw-org-font-size="16" style="font-size: 16px;">Categories of Sources</li><li data-asw-org-font-size="16" style="font-size: 16px;">Examples of Uses</li><li data-asw-org-font-size="16" style="font-size: 16px;">Categories of Third Parties with Which We May Share That Information</li></ul><strong>Identifiers (such as name, email address)</strong><ul><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service, including to register an account for you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you, e.g. customer support</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers and Site Hosts)</li><li data-asw-org-font-size="16" style="font-size: 16px;">AffiliatesCommercial information (such as transaction data, use data)</li><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">AffiliatesFinancial data (such as the last four digits of payment cards)</li><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Internet or other network or device activity (such as IP address, unique device identifier, advertising, app identifiers, browsing history, screen recording of usage, or other usage data)</li><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li>   <li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li> <li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates Location information (general location, and, if you provide permission, precise GPS location)</li>   <li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li>          <li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li> <li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates Sensory information (such as audio recordings if you call our customer service)</li><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li> <li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates Other information that identifies or can be reasonably associated with you (such as communications you send us)</li><li data-asw-org-font-size="16" style="font-size: 16px;">You</li><li data-asw-org-font-size="16" style="font-size: 16px;">Your use of our services/automatically collected from you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li><li data-asw-org-font-size="16" style="font-size: 16px;">Third Parties (such as agents/service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Providing the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Fixing and improving the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Marketing and advertising</li><li data-asw-org-font-size="16" style="font-size: 16px;">Communicating with you</li><li data-asw-org-font-size="16" style="font-size: 16px;">Analyzing use of the Service</li><li data-asw-org-font-size="16" style="font-size: 16px;">Preventing, detecting, investigating, and responding to fraud, unauthorized access/use of the Service, breaches of terms and policies</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">Third parties (such as service providers)</li><li data-asw-org-font-size="16" style="font-size: 16px;">Affiliates</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Rights. </strong></p><p data-asw-org-font-size="16" style="font-size: 16px;">If you are a California resident, you may have certain rights.  California law may permit you to request that we</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul><li data-asw-org-font-size="16" style="font-size: 16px;">Provide you the categories of personal information we have collected or disclosed about you in the last twelve months; the categories of sources of such information; the business or commercial purpose for collecting or selling your personal information; and the categories of third parties with whom we shared personal information.</li><li data-asw-org-font-size="16" style="font-size: 16px;">Provide access to and/or a copy of certain information we hold about you.</li><li data-asw-org-font-size="16" style="font-size: 16px;">Delete certain information we have about you.</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You may have the right to receive information about the financial incentives that we offer to you, if any. You also have the right to not be discriminated against (as provided for in applicable law) for exercising certain of your rights. Certain information may be exempt from such requests under applicable law. We need certain types of information so that we can provide the Service to you. If you ask us to delete it, you may no longer be able to access or use the Service.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">If would like to exercise any of these rights, please submit a request at https://altametrics.com/legal/privacy/.  You will be required to verify your identity before we fulfill your request. To do so, you will need to provide the information identified in the webform or as otherwise directed by us. You can also designate an authorized agent to make a request on your behalf. To do so, you must provide us with written authorization or a power of attorney, signed by you, for the agent to act on your behalf. You will still need to verify your identity directly with us.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">California residents may opt out of the “sale” of their personal information. Company does not “sell” your personal information as we understand that term to be defined by the California Consumer Privacy Act and its implementing regulations, and we have not sold your personal information in the past twelve months.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">California Do-Not-Track.  </p><p data-asw-org-font-size="16" style="font-size: 16px;">We do not respond to browser-initiated Do Not Track signals, as the Internet industry is currently still working on Do Not Track standards, implementations, and solutions.</p>
+				</div>
+				
+			</div>
+		</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Terms of Use -->
+                <div id="section2" class="bg-white border border-slate-200 rounded-2xl transition-all duration-300 disabled-section shadow-sm">
+                    <div class="w-full flex items-center justify-between p-4">
+                        <button id="btnToggle2" class="flex-1 flex items-center gap-3 text-left font-semibold text-slate-800" onclick="toggleSection(2)" disabled>
+                            <span id="stepIcon2" class="w-8 h-8 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-sm font-bold transition-colors">2</span>
+                            Terms of Use
+                            <svg id="icon2" class="w-4 h-4 text-slate-400 transform transition-transform ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <a href="https://altametrics.com/legal/terms-of-use/" target="_blank" title="Open full document" class="p-2 text-slate-400 hover:text-indigo-600 transition-colors bg-slate-50 rounded-lg ml-2" onclick="event.stopPropagation()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div id="content2" class="accordion-content px-4 pb-4 hidden opacity-0">
+                        <div id="scrollContainer2" class="h-52 overflow-y-auto pr-3 custom-scrollbar text-[14px] text-slate-600 leading-relaxed space-y-4 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
+                           
+
+                            <div class="col-md-10">
+				
+				<div class="mb-5">
+					<ha4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Website Terms of Use
+					</h4>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">The website located at https://altametrics.com is a copyrighted work belonging to Altametrics, LLC. (“Company”). Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">All such additional terms, guidelines, and rules are incorporated by reference into these Terms.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">These terms require the use of arbitration Section 10.2 on an individual basis to resolve disputes and also limit the remedies available to you in the event of a dispute.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">The website located at https://altametrics.com is a copyrighted work belonging to Altametrics, LLC. (“Company”). Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Access to the Site
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Subject to these Terms.</strong> Company grants you a non-transferable, non-exclusive, revocable, limited license to access the Site solely for your own personal, noncommercial use.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Certain Restrictions.</strong> The rights approved to you in these Terms are subject to the following restrictions (a) you shall not sell, rent, lease, transfer, assign, distribute, host, or otherwise commercially exploit the Site; (b) you shall not change, make derivative works of, disassemble, reverse compile or reverse engineer any part of the Site; (c) you shall not access the Site in order to build a similar or competitive website; and (d) except as expressly stated herein, no part of the Site may be copied, reproduced, distributed, republished, downloaded, displayed, posted or transmitted in any form or by any means unless otherwise indicated, any future release, update, or other addition to functionality of the Site shall be subject to these Terms.&nbsp; All copyright and other proprietary notices on the Site must be retained on all copies thereof.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Company reserves the right to change, suspend, or cease the Site with or without notice to you.&nbsp; You agree that Company will not be held liable to you or any third-party for any change, interruption, or termination of the Site or any part.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>No Support or Maintenance.</strong> You agree that Company will have no obligation to provide you with any support in connection with the Site.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Excluding any User Content that you may provide, you are aware that all the intellectual property rights, including copyrights, patents, trademarks, and trade secrets, in the Site and its content are owned by Company or Company’s suppliers. Note that these Terms and access to the Site do not give you any rights, title or interest in or to any intellectual property rights. Company and its suppliers reserve all rights not granted in these Terms.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						User Content
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>User Content.</strong> "User Content" means any and all information and content that a user submits to the Site. You are exclusively responsible for your User Content. You bear all risks associated with use of your User Content.&nbsp; You hereby certify that your User Content does not violate our Acceptable Use Policy.&nbsp; You may not represent or imply to others that your User Content is in any way provided, sponsored or endorsed by Company. Because you alone are responsible for your User Content, you may expose yourself to liability. Company is not obliged to backup any User Content that you post; also, your User Content may be deleted at any time without prior notice to you. You are solely responsible for making your own backup copies of your User Content if you desire.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You hereby grant to Company an irreversible, nonexclusive, royalty-free and fully paid, worldwide license to reproduce, distribute, publicly display and perform, prepare derivative works of, incorporate into other works, and otherwise use and exploit your User Content, and to grant sublicenses of the foregoing rights, solely for the purposes of including your User Content in the Site.&nbsp; You hereby irreversibly waive any claims and assertions of moral rights or attribution with respect to your User Content.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Acceptable Use Policy.</strong> The following terms constitute our "Acceptable Use Policy" You agree not to use the Site to collect, upload, transmit, display, or distribute any User Content (i) that violates any third-party right or any intellectual property or proprietary right; (ii) that is unlawful, harassing, abusive, tortious, threatening, harmful, invasive of another’s privacy, vulgar, defamatory, false, intentionally misleading, trade libelous, pornographic, obscene, patently offensive, promotes racism, bigotry, hatred, or physical harm of any kind against any group or individual; (iii) that is harmful to minors in any way; or (iv) that is in violation of any law, regulation, or obligations or restrictions imposed by any third party.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">In addition, you agree not to (i) upload, transmit, or distribute to or through the Site any software intended to damage or alter a computer system or data; (ii) send through the Site unsolicited or unauthorized advertising, promotional materials, junk mail, spam, chain letters, pyramid schemes, or any other form of duplicative or unsolicited messages; (iii) use the Site to harvest, collect, gather or assemble information or data regarding other users without their consent; (iv) interfere with, disrupt, or create an undue burden on servers or networks connected to the Site, or violate the regulations, policies or procedures of such networks; (v) attempt to gain unauthorized access to the Site, whether through password mining or any other means; (vi) harass or interfere with any other user’s use and enjoyment of the Site; or (vi) use software or automated agents or scripts to produce multiple accounts on the Site, or to generate automated searches, requests, or queries to the Site.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We reserve the right to review any User Content, and to investigate and/or take appropriate action against you in our sole discretion if you violate the Acceptable Use Policy or any other provision of these Terms or otherwise create liability for us or any other person. Such action may include removing or modifying your User Content, terminating your Account and/or reporting you to law enforcement authorities.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">If you provide Company with any feedback or suggestions regarding the Site, you hereby assign to Company all rights in such Feedback and agree that Company shall have the right to use and fully exploit such Feedback and related information in any manner it believes appropriate.&nbsp; Company will treat any Feedback you provide to Company as non-confidential and non-proprietary.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You agree to indemnify and hold Company and its officers, employees, and agents harmless, including costs and attorneys’ fees, from any claim or demand made by any third-party due to or arising out of (a) your use of the Site, (b) your violation of these Terms, (c) your violation of applicable laws or regulations or (d) your User Content.&nbsp; Company reserves the right to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate with our defense of these claims.&nbsp; You agree not to settle any matter without the prior written consent of Company.&nbsp; Company will use reasonable efforts to notify you of any such claim, action or proceeding upon becoming aware of it.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Third-Party Links &amp; Ads; Other Users
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Third-Party Links &amp; Ads.</strong> The Site may contain links to third-party websites and services, and/or display advertisements for third-parties.&nbsp; Such Third-Party Links &amp; Ads are not under the control of Company, and Company is not responsible for any Third-Party Links &amp; Ads.&nbsp; Company provides access to these Third-Party Links &amp; Ads only as a convenience to you, and does not review, approve, monitor, endorse, warrant, or make any representations with respect to Third-Party Links &amp; Ads.&nbsp; You use all Third-Party Links &amp; Ads at your own risk, and should apply a suitable level of caution and discretion in doing so. When you click on any of the Third-Party Links &amp; Ads, the applicable third party’s terms and policies apply, including the third party’s privacy and data gathering practices.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Other Users.</strong> Each Site user is solely responsible for any and all of its own User Content.&nbsp; Because we do not control User Content, you acknowledge and agree that we are not responsible for any User Content, whether provided by you or by others.&nbsp; You agree that Company will not be responsible for any loss or damage incurred as the result of any such interactions.&nbsp; If there is a dispute between you and any Site user, we are under no obligation.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">We reserve the right to review any User Content, and to investigate and/or take appropriate action against you in our sole discretion if you violate the Acceptable Use Policy or any other provision of these Terms or otherwise create liability for us or any other person. Such action may include removing or modifying your User Content, terminating your Account and/or reporting you to law enforcement authorities.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">You hereby release and forever discharge the Company and our officers, employees, agents, successors, and assigns from, and hereby waive and relinquish, each and every past, present and future dispute, claim, controversy, demand, right, obligation, liability, action and cause of action of every kind and nature, that has arisen or arises directly or indirectly out of, or that relates directly or indirectly to, the Site. If you are a California resident, you hereby waive California civil code section 1542 in connection with the foregoing, which states "a general release does not extend to claims which the creditor does not know or suspect to exist in his or her favor at the time of executing the release, which if known by him or her must have materially affected his or her settlement with the debtor."</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Cookies and Web Beacons.</strong> This website uses ‘cookies’. These cookies are used to store information including visitors’ preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Disclaimers
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">The site is provided on an "as-is" and "as available" basis, and company and our suppliers expressly disclaim any and all warranties and conditions of any kind, whether express, implied, or statutory, including all warranties or conditions of merchantability, fitness for a particular purpose, title, quiet enjoyment, accuracy, or non-infringement.&nbsp; We and our suppliers do not guarantee that the site will meet your requirements, will be available on an uninterrupted, timely, secure, or error-free basis, or will be accurate, reliable, free of viruses or other harmful code, complete, legal, or safe.&nbsp; If applicable law requires any warranties with respect to the site, all such warranties are limited in duration to ninety (90) days from the date of first use.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to you.&nbsp; Some jurisdictions do not allow limitations on how long an implied warranty lasts, so the above limitation may not apply to you.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Limitation on Liability
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">To the maximum extent permitted by law, in no event shall company or our suppliers be liable to you or any third-party for any lost profits, lost data, costs of procurement of substitute products, or any indirect, consequential, exemplary, incidental, special or punitive damages arising from or relating to these terms or your use of, or incapability to use the site even if company has been advised of the possibility of such damages.&nbsp; Access to and use of the site is at your own discretion and risk, and you will be solely responsible for any damage to your device or computer system, or loss of data resulting therefrom.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">To the maximum extent permitted by law, notwithstanding anything to the contrary contained herein, our liability to you for any damages arising from or related to this agreement, will at all times be limited to a maximum of fifty U.S. dollars (u.s. $50). The existence of more than one claim will not enlarge this limit.&nbsp; You agree that our suppliers will have no liability of any kind arising from or relating to this agreement.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, so the above limitation or exclusion may not apply to you.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Term and Termination.</strong> Subject to this Section, these Terms will remain in full force and effect while you use the Site.&nbsp; We may suspend or terminate your rights to use the Site at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms.&nbsp; Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately.&nbsp; You understand that any termination of your Account may involve deletion of your User Content associated with your Account from our live databases.&nbsp; Company will not have any liability whatsoever to you for any termination of your rights under these Terms.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						Copyright Policy.
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Company respects the intellectual property of others and asks that users of our Site do the same.&nbsp; In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.&nbsp; If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"></p><ul class="pl-3"><li class="my-3" data-asw-org-font-size="16" style="font-size: 16px;">your physical or electronic signature;</li><li data-asw-org-font-size="16" style="font-size: 16px;">identification of the copyrighted work(s) that you claim to have been infringed;</li><li data-asw-org-font-size="16" style="font-size: 16px;">identification of the material on our services that you claim is infringing and that you request us to remove;</li><li data-asw-org-font-size="16" style="font-size: 16px;">identification of the material on our services that you claim is infringing and that you request us to remove;</li><li data-asw-org-font-size="16" style="font-size: 16px;">sufficient information to permit us to locate such material;</li><li data-asw-org-font-size="16" style="font-size: 16px;">your address, telephone number, and e-mail address;</li><li data-asw-org-font-size="16" style="font-size: 16px;">a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and</li><li data-asw-org-font-size="16" style="font-size: 16px;">a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.</li></ul><p data-asw-org-font-size="16" style="font-size: 16px;"></p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney’s fees incurred by us in connection with the written notification and allegation of copyright infringement.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						General
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Governing Law; Dispute Resolution</strong>You agree that all matters relating to your access to or use of the Site, including all disputes, will be governed by the laws of the United States and by the laws of the State of California without regard to its conflicts of laws provisions. You agree to the personal jurisdiction by and venue in the state and federal courts in Orange County, California, and waive any objection to such jurisdiction or venue. Any claim under these Terms of Use must be brought within one (1) year after the cause of action arises, or such claim or cause of action is barred. Claims made under the separate terms and conditions of purchase for goods and services are not subject to this limitation. No recovery may be sought or received for damages other than out-of-pocket expenses. In the event of any controversy or dispute between Company and you arising out of or in connection with your use of the Site, the parties shall attempt, promptly and in good faith, to resolve any such dispute. If we are unable to resolve any such dispute within a reasonable time (not to exceed thirty (30) days), then either party may submit such controversy or dispute to mediation. If the dispute cannot be resolved through mediation, then the parties shall be free to pursue any right or remedy available to them under applicable law.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">These Terms are subject to occasional revision, and if we make any substantial changes, we may notify you by sending you an e-mail to the last e-mail address you provided to us and/or by prominently posting notice of the changes on our Site.&nbsp; You are responsible for providing us with your most current e-mail address.&nbsp; In the event that the last e-mail address that you have provided us is not valid our dispatch of the e-mail containing such notice will nonetheless constitute effective notice of the changes described in the notice.&nbsp; Any changes to these Terms will be effective upon the earliest of thirty (30) calendar days following our dispatch of an e-mail notice to you or thirty (30) calendar days following our posting of notice of the changes on our Site.&nbsp; These changes will be effective immediately for new users of our Site.&nbsp; Continued use of our Site following notice of such changes shall indicate your acknowledgement of such changes and agreement to be bound by the terms and conditions of such changes.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Electronic Communications.</strong> The communications between you and Company use electronic means, whether you use the Site or send us emails, or whether Company posts notices on the Site or communicates with you via email. For contractual purposes, you (a) consent to receive communications from Company in an electronic form; and (b) agree that all terms and conditions, agreements, notices, disclosures, and other communications that Company provides to you electronically satisfy any legal obligation that such communications would satisfy if it were be in a hard copy writing.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Entire Terms.</strong> These Terms constitute the entire agreement between you and us regarding the use of the Site. Our failure to exercise or enforce any right or provision of these Terms shall not operate as a waiver of such right or provision. The section titles in these Terms are for convenience only and have no legal or contractual effect. The word "including" means "including without limitation". If any provision of these Terms is held to be invalid or unenforceable, the other provisions of these Terms will be unimpaired and the invalid or unenforceable provision will be deemed modified so that it is valid and enforceable to the maximum extent permitted by law.&nbsp; Your relationship to Company is that of an independent contractor, and neither party is an agent or partner of the other.&nbsp; These Terms, and your rights and obligations herein, may not be assigned, subcontracted, delegated, or otherwise transferred by you without Company’s prior written consent, and any attempted assignment, subcontract, delegation, or transfer in violation of the foregoing will be null and void.&nbsp; Company may freely assign these Terms.&nbsp; The terms and conditions set forth in these Terms shall be binding upon assignees.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 24px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;"><strong>Copyright/Trademark Information.</strong> Copyright ©. All rights reserved.&nbsp; All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 20px;">
+						Contact Information
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Altametrics</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 20px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">Attention Legal Dept</p>
+				</div>
+				
+				<div class="mb-5">
+					<h4 class="mb-3" data-asw-org-font-size="24" style="font-size: 20px;">
+						
+					</h4>
+					<p data-asw-org-font-size="16" style="font-size: 16px;">3191 Red Hill Ave. Costa Mesa CA 92626</p>
+				</div>
+				
+			</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer / Acceptance -->
+            <div class="p-6 border-t border-slate-100 bg-white">
+                <div class="mb-6">
+                    <label class="flex items-center gap-3 cursor-pointer group select-none">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" id="checkAll" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                        </div>
+                        <span id="checkLabel" class="text-sm text-slate-500 group-hover:text-slate-700 transition-colors">
+                            I have read and agree to the <span class="font-semibold text-slate-700">Privacy Policy</span> and <span class="font-semibold text-slate-700">Terms of Use</span>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="flex gap-3">
+                    <button id="declineBtn" class="flex-1 py-3 px-4 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-all active:scale-[0.98]">
+                        Decline
+                    </button>
+                    <button id="acceptBtn" class="flex-[2] py-3 px-4 rounded-xl bg-slate-200 text-slate-400 font-bold cursor-not-allowed transition-all shadow-sm" disabled>
+                        Accept & Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Content -->
+    <div class="text-center text-slate-600">
+        <p class="text-sm">Application background content is restricted.</p>
+        <button onclick="localStorage.clear(); location.reload();" class="mt-4 text-[10px] uppercase tracking-widest font-bold text-slate-500 hover:text-indigo-400 transition-colors">Reset Consent State</button>
+    </div>
+
+    <script>
+        // Elements
+        const modalOverlay = document.getElementById('modalOverlay');
+        const scroll1 = document.getElementById('scrollContainer1');
+        const scroll2 = document.getElementById('scrollContainer2');
+        const section1 = document.getElementById('section1');
+        const section2 = document.getElementById('section2');
+        const content1 = document.getElementById('content1');
+        const content2 = document.getElementById('content2');
+        const stepIcon2 = document.getElementById('stepIcon2');
+        const btnToggle2 = document.getElementById('btnToggle2');
+        const checkAll = document.getElementById('checkAll');
+        const checkLabel = document.getElementById('checkLabel');
+        const acceptBtn = document.getElementById('acceptBtn');
+        const declineBtn = document.getElementById('declineBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        // State
+        let privacyRead = false;
+        let termsRead = false;
+
+        window.onload = () => {
+            if (!localStorage.getItem('user_consent_accepted')) {
+                modalOverlay.classList.remove('hidden');
+                // Check if content is small enough to already be at the "bottom"
+                checkScroll(scroll1, 'privacy');
+            }
+        };
+
+        function checkScroll(element, type) {
+            // Buffer to ensure it triggers across browsers
+            const isAtBottom = element.scrollHeight - element.scrollTop <= element.clientHeight + 10;
+            
+            if (isAtBottom) {
+                if (type === 'privacy' && !privacyRead) {
+                    privacyRead = true;
+                    unlockSection2();
+                    updateProgress();
+                } else if (type === 'terms' && !termsRead) {
+                    termsRead = true;
+                    unlockCheckbox();
+                    updateProgress();
+                }
+            }
+        }
+
+        scroll1.addEventListener('scroll', () => checkScroll(scroll1, 'privacy'));
+        scroll2.addEventListener('scroll', () => checkScroll(scroll2, 'terms'));
+
+        function unlockSection2() {
+            section2.classList.remove('disabled-section');
+            btnToggle2.disabled = false;
+            stepIcon2.classList.replace('bg-slate-200', 'bg-indigo-600');
+            stepIcon2.classList.replace('text-slate-500', 'text-white');
+            
+            // Auto-expand Terms of Use
+            toggleSection(2);
+        }
+
+        function unlockCheckbox() {
+            checkAll.disabled = false;
+            checkLabel.classList.replace('text-slate-500', 'text-slate-700');
+        }
+
+        function toggleSection(id) {
+            const i1 = document.getElementById('icon1');
+            const i2 = document.getElementById('icon2');
+
+            if (id === 1) {
+                content1.classList.remove('hidden');
+                setTimeout(() => content1.classList.remove('opacity-0'), 10);
+                content2.classList.add('hidden', 'opacity-0');
+                i1.classList.add('rotate-180');
+                i2.classList.remove('rotate-180');
+                section1.classList.add('section-active');
+                section2.classList.remove('section-active');
+            } else {
+                if (section2.classList.contains('disabled-section')) return;
+                content2.classList.remove('hidden');
+                setTimeout(() => content2.classList.remove('opacity-0'), 10);
+                content1.classList.add('hidden', 'opacity-0');
+                i2.classList.add('rotate-180');
+                i1.classList.remove('rotate-180');
+                section2.classList.add('section-active');
+                section1.classList.remove('section-active');
+                
+                // Check if already at bottom of section 2 when opened
+                setTimeout(() => checkScroll(scroll2, 'terms'), 50);
+            }
+        }
+
+        function updateProgress() {
+            let count = 0;
+            if (privacyRead) count++;
+            if (termsRead) count++;
+            
+            const percentage = (count / 2) * 100;
+            progressBar.style.width = percentage + '%';
+            progressText.innerText = `${count} of 2 sections completed`;
+        }
+
+        function validateAcceptance() {
+            if (checkAll.checked && privacyRead && termsRead) {
+                acceptBtn.disabled = false;
+                acceptBtn.classList.remove('bg-slate-200', 'text-slate-400', 'cursor-not-allowed');
+                acceptBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-blue-600', 'text-white', 'hover:shadow-lg', 'hover:shadow-indigo-200', 'active:scale-[0.98]');
+            } else {
+                acceptBtn.disabled = true;
+                acceptBtn.classList.add('bg-slate-200', 'text-slate-400', 'cursor-not-allowed');
+                acceptBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-blue-600', 'text-white', 'hover:shadow-lg', 'hover:shadow-indigo-200', 'active:scale-[0.98]');
+            }
+        }
+
+        checkAll.addEventListener('change', validateAcceptance);
+
+        acceptBtn.onclick = () => {
+            localStorage.setItem('user_consent_accepted', 'true');
+            modalOverlay.classList.add('hidden');
+        };
+
+        declineBtn.onclick = () => {
+            modalOverlay.style.opacity = '0.3';
+            modalOverlay.style.pointerEvents = 'none';
+            document.body.innerHTML = `
+                <div class="fixed inset-0 bg-slate-900 flex items-center justify-center p-10 text-center">
+                    <div>
+                        <div class="bg-red-500/10 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0 0v2m0-2h2m-2 0H10m11-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h1 class="text-3xl font-bold text-white mb-4">Agreement Declined</h1>
+                        <p class="text-slate-400 mb-8 max-w-md mx-auto">Access to the platform is restricted unless you read and accept both the Privacy Policy and Terms of Use.</p>
+                        <button onclick="location.reload()" class="px-8 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all">Go Back & Review</button>
+                    </div>
+                </div>
+            `;
+        };
+    </script>
+</body>
+</html>
